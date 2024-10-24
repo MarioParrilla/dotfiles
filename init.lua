@@ -3,7 +3,7 @@ vim.opt.timeoutlen = 1000
 vim.opt.ttimeoutlen = 0
 vim.keymap.set('n', '<S-d>', 'yyp', { noremap = true, silent = true })
 vim.keymap.set('n', '<S-Up>', ':m .-2<CR>==', { noremap = true, silent = true })
-vim.keymap.set('n', '<S-Down>', ':m .+1<CR>==', { noremap = true, silent = true })
+vim.keymap.set('n', '<S-Up>', ':m .-2<CR>==', { noremap = true, silent = true })
 vim.opt.termguicolors = true
 
 local cmp = require("cmp")

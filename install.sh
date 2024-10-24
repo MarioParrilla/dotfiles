@@ -4,19 +4,12 @@
 SO=$(uname)
 
 # Comparar el sistema operativo
-if [ "$SO" == "Linux" ]; then
-    runLinuxInstall
-elif [ "$SO" == "Darwin" ]; then
-    echo "Estás usando macOS"
-else
-    echo "Sistema operativo no reconocido: $SO"
-fi
 
-runLinuxInstall() {
-    nvimInstalled=dpkg --list | grep -o neovim -m 1 | wc -l
+function runLinuxInstall() {
+    nvimInstalled=$(which nvim | wc -l)
     if [ $nvimInstalled -eq 0 ]
     then
-        apt-get install neovim;
+        apt-get install neovim
         if [ $? -ne 0 ]
         then
             echo "[!]: Error installing Neovim!."
@@ -26,3 +19,11 @@ runLinuxInstall() {
         echo "[i]: Neovim is already installed"
     fi
 }
+
+if [ "$SO" == "Linux" ]; then
+    runLinuxInstall
+elif [ "$SO" == "Darwin" ]; then
+    echo "Estás usando macOS"
+else
+    echo "Sistema operativo no reconocido: $SO"
+fi
