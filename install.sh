@@ -9,6 +9,7 @@ function runLinuxInstall() {
     nvimInstalled=$(which nvim | wc -l)
     if [ $nvimInstalled -eq 0 ]
     then
+        echo "[i]: Installing Neovim"
         apt-get install neovim > /dev/null
         if [ $? -ne 0 ]
         then
