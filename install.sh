@@ -5,7 +5,7 @@ SO=$(uname)
 
 # Comparar el sistema operativo
 if [ "$SO" == "Linux" ]; then
-    echo "Estás usando Linux"
+    runLinuxInstall
 elif [ "$SO" == "Darwin" ]; then
     echo "Estás usando macOS"
 else
